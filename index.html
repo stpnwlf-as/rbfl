@@ -88,14 +88,7 @@
 
         // Логика тиканья таймера (только на стороне табло для плавности)
         setInterval(() => {
-            db.ref('match/timer').once('value', snapshot => {
-                let t = snapshot.val();
-                if (t && t.running) {
-                    let totalSec = t.minutes * 60 + t.seconds + 1;
-                    db.ref('match/timer').update({
-                        minutes: Math.floor(totalSec / 60),
-                        seconds: totalSec % 60
-                    });
+
                 }
             });
         }, 1000);
